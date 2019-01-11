@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title> #Project Title Here# </title>
+	<style>
+		#big-box {
+			position: absolute;
+			background: rgba(225, 0, 50, 0.15);
+		   	font-family: Arial, sans-serif;
+		    overflow: auto;
+			height: 450px; 
+			width: 1000px;
+		  	top: 15%;
+		    left: 10%;
+		    right: 10%;
+		    text-align: center;
+		    margin-left: auto;
+		  	margin-right: auto;
+		  	display: inline-block;
+		}
+
+		.small-box {
+			position: absolute;
+			height: 200px;
+			width: 200px;
+			margin: auto;
+			background: rgba(255, 255, 255, 1);
+		}
+
+		#left-box {
+			left: 100px;
+		}
+
+		#middle-box {
+			left: 400px;
+		}
+
+		#right-box {
+			left: 700px;
+		}
+
+		.btn-group .button {
+			background: rgba(50, 0, 250, .8);
+			border: none;
+			color: white;
+			padding: 15px 32px;
+			text-align: center;
+			text-decoration: none;
+			display: inline-block;
+			font-size: 16px;
+			cursor: pointer;
+			margin-left: 10%;
+			margin-right: 10%;
+			margin-top: 10px;
+			width: 200px;
+			display: inline-block;
+		}
+
+		.button1 {
+			position: absolute;
+			top: 350px;
+			left: 160px;
+		}
+
+		.button2 {
+			position: absolute;
+			top: 350px;
+			left: 440px;
+		}
+
+	</style>
+</head>
+
+<body>
+	<script>
+		function submitReviewForm() {
+			document.ReviewForm.title.value = "#Project Title Here#";
+			document.ReviewForm.submit();
+		}
+		function submitFundItForm() {
+			document.FundItForm.title.value = "#Project Title Here#";
+			document.FundItForm.submit();
+			setTimeout("location.reload(true);", 1000);
+		}
+	</script>
+
+	<iframe width="0" height="0" border="0" name="invisibleframe" id="invisibleframe"></iframe>
+	<div id='big-box'>
+		<h1> #Project Title Here# </h1>
+		<h3> #Project Author Here# </h3>
+		<div class = 'small-box' id='left-box'> 
+			<h2>Betting Results </h2> 
+			<h1> #Project Current_Price here# </h1>
+		</div>
+		<div class='small-box' id='middle-box'>
+			<h2>Current Funding Level </h2>
+			<h1> #Project Funding_Level here# </h1>
+		</div>
+		<div class = 'small-box' id='right-box'>
+			<h2> Fund It </h2>
+			<form name="FundItForm" method="GET" action="/cgi-bin/fund_it.py" target="invisibleframe">
+				 Amount:<br>
+        		 <input type="text" name="amount"> <br>
+  				 <input type="hidden" name="title"> <br>
+        		 <button class="button" onclick="submitFundItForm()">Fund it!</button>
+			</form>
+		</div>
+		<form name="ReviewForm" method="GET" action="/cgi-bin/render_proposal.py">
+			<input type="hidden" name="title"><br>
+			<div class="btn-group">
+				<button class="button button1" onclick="submitReviewForm()">Review Proposal</button>
+			</div>
+		</form>
+		<div class="btn-group">
+			<button class="button button2" onclick="window.location.replace('./render_list.py')">See List!</button>
+		</div>
+	</div>
+</body>
+
+</html>

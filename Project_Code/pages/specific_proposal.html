@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title> ECO406 PROJECT </title>
+	<style>
+		#big-box {
+			position: absolute;
+			background: rgba(225, 0, 50, 0.15);
+		   	font-family: Arial, sans-serif;
+		    overflow: auto;
+			height: 500px; 
+			width: 1000px;
+		  	top: 15%;
+		    left: 10%;
+		    right: 10%;
+		    text-align: center;
+		    margin-left: auto;
+		  	margin-right: auto;
+		  	display: inline-block;
+		}
+
+		#white-box {
+			position: relative;
+			top: 0%;
+			margin: auto;
+			height: 200px;
+			width: 75%;
+			background: rgba(255, 255, 255, 1);
+			overflow: auto;
+		}
+
+		.btn-group .button {
+			position: absolute;
+			background: rgba(50, 0, 250, .8);
+			border: none;
+			color: white;
+			padding: 15px 32px;
+			text-align: center;
+			text-decoration: none;
+			display: inline-block;
+			font-size: 16px;
+			cursor: pointer;
+			margin-left: 10%;
+			margin-right: 10%;
+			margin-top: 10px;
+			display: inline-block;
+		}
+
+		.button1 {
+			top: 350px;
+			left: 25px;
+		}
+
+		.button2 {
+			top: 350px;
+			left: 340px;
+		}
+
+		.button3 {
+			top: 350px;
+			left: 650px;
+		}
+
+	</style>
+      	
+</head>
+
+<body>
+	<script>
+		function submitBetForm() {
+			document.BetForm.title.value = "#Project Title Here#";
+			document.BetForm.submit();
+		}
+		function submitFundForm() {
+			document.FundForm.title.value = "#Project Title Here#";
+			document.FundForm.submit();
+		}
+	</script>
+	<div id='big-box'>
+		<h1> #Project Title Here# </h1>
+		<h3> #Project Author Here# </h3>
+		<div id='white-box'>
+			<p> #Project Description here# </p>
+		</div>
+		<div class="btn-group">
+			<form name="BetForm" method="GET" action="/cgi-bin/render_bets.py">
+				<input type="hidden" name="title"><br>
+				<button class="button button1" onclick="submitBetForm()">Bet on it!</button>
+			</form>
+			<form name="FundForm" method="GET" action="/cgi-bin/render_funding.py">
+				<input type="hidden" name="title"><br>
+				<button class="button button2" onclick="submitFundForm()">Fund it!</button>
+			</form>
+			<button class="button button3" onclick="window.location.replace('./render_list.py')">See List!</button>
+		</div>
+	</div>
+</body>
+
+</html>
