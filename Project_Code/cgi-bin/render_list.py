@@ -1,10 +1,12 @@
 #!/usr/bin/python
-import cgi, cgitb, json
+import json
 
-f = open("./fake-backend/db.json", "r")
-json_obj = json.load(f)
+print "Content-type: text/html\n\n"
 
-with open("./pages/list_proposals.html") as g:
+with open("../fake-backend/db.json", "r") as f:
+	json_obj = json.load(f)
+
+with open("../pages/list_proposals.html") as g:
 	for line in g:
 		print(line)
 		split_line = line.split()

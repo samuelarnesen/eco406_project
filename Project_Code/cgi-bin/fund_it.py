@@ -5,7 +5,7 @@ form = cgi.FieldStorage()
 title = form.getvalue("title")
 amount = form.getvalue("amount")
 
-with open("./fake-backend/db.json", "r") as f:
+with open("../fake-backend/db.json", "r") as f:
 	json_obj = json.load(f)
 
 json_obj[title]["Donations"].append(float(amount))
@@ -28,6 +28,6 @@ else:
 
 json_obj[title]["Funding_Level"] = str_fund
 
-with open("./fake-backend/db.json", "w") as f:
+with open("../fake-backend/db.json", "w") as f:
 	json.dump(json_obj, f)
 
