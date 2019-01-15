@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<!-- Template by Quackit.com -->
+<!-- Images by various sources under the Creative Commons CC0 license and/or the Creative Commons Zero license. 
+Although you can use them, for a more unique website, replace these images with your own. -->
+<html lang="en">
+<head>
+    <title> Submit Proposal </title>
+    <style>
+        #big-box {
+            position: absolute;
+            background: rgba(225, 0, 50, 0.15);
+            font-family: Arial, sans-serif;
+            overflow: auto;
+            height: 450px; 
+            width: 500px;
+            top: 15%;
+            left: 10%;
+            right: 10%;
+            text-align: center;
+            margin-left: auto;
+            margin-right: auto;
+            display: inline-block;
+        }
+
+        .small-box {
+            position: absolute;
+            height: 200px;
+            width: 150px;
+            margin: auto;
+            background: rgba(255, 255, 255, 1);
+        }
+
+        #right-box {
+            top: 125px;
+            left: 175px;
+        }
+
+        .btn-group .button {
+            background: rgba(50, 0, 250, .8);
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            cursor: pointer;
+            margin-left: 10%;
+            margin-right: 10%;
+            margin-top: 10px;
+            width: 200px;
+            display: inline-block;
+        }
+
+        .button1 {
+            position: absolute;
+            left: 0px;
+            top: 0px;
+        }
+
+    </style>
+</head>
+
+<body>
+    <script>
+        function submitNewForm() {
+            document.SubmitForm.submit();
+            window.location.href = '../cgi-bin/render_list.py';
+        }
+    </script>
+
+
+	<iframe width="0" height="0" border="0" name="invisibleframe" id="invisibleframe"></iframe>
+	<div id='big-box'>
+		<div class = 'small-box' id='right-box'>
+            <h2> Submit a Proposal </h2>
+			<form id = "SubmitForm" name="SubmitForm" method="GET" action="/cgi-bin/testSubmit.py" target="invisibleframe">
+				<div class="container">
+				<table>
+					<tr>
+						<td>
+        		 <input placeholder = "Project Name" type="text" name="name"> <br>
+        		</td>
+        		</tr>
+        		<tr>
+        			<td>
+  				 <input placeholder="Description" type = "text" name = "desc">
+  				</td>
+				</tr>
+                <tr>
+                    <td>
+                 <input placeholder = "Author" type="text" name="auth">
+                </td>
+                </tr>
+				<tr>
+					<td>
+        		 <button class="button" onclick="submitNewForm()">Submit</button>
+        		</td>
+        		</tr>
+        	</table>
+        	</div>
+			</form>
+		</div>
+	</div>
+</body>
+
+</html>

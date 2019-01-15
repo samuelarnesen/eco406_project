@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title> #Project Title Here# </title>
+	<style>
+		#big-box {
+			position: absolute;
+			background: rgba(225, 0, 50, 0.15);
+		   	font-family: Arial, sans-serif;
+		    overflow: auto;
+			height: 450px; 
+			width: 1000px;
+		  	top: 15%;
+		    left: 10%;
+		    right: 10%;
+		    text-align: center;
+		    margin-left: auto;
+		  	margin-right: auto;
+		  	display: inline-block;
+		}
+
+		.small-box {
+			position: absolute;
+			height: 200px;
+			width: 200px;
+			margin: auto;
+			background: rgba(255, 255, 255, 1);
+		}
+
+		#left-box {
+			left: 260px;
+		}
+
+		#right-box {
+			left: 540px;
+		}
+
+		.btn-group .button {
+			background: rgba(50, 0, 250, .8);
+			border: none;
+			color: white;
+			padding: 15px 32px;
+			text-align: center;
+			text-decoration: none;
+			display: inline-block;
+			font-size: 16px;
+			cursor: pointer;
+			margin-left: 10%;
+			margin-right: 10%;
+			margin-top: 10px;
+			width: 200px;
+			display: inline-block;
+		}
+
+		.button1 {
+			position: absolute;
+			top: 350px;
+			left: 0px;
+		}
+
+		.button2 {
+			position: absolute;
+			top: 350px;
+			left: 300px;
+		}
+
+		.button3 {
+			position: absolute;
+			top: 350px;
+			left: 600px;
+		}
+	</style>
+</head>
+
+<body>
+	<script>
+		function submitReviewForm() {
+			document.ReviewForm.submit();
+			window.location.href = '../cgi-bin/render_list.py';
+		}
+	</script>
+
+	<iframe width="0" height="0" border="0" name="invisibleframe" id="invisibleframe"></iframe>
+	<div id='big-box'>
+		<div class = 'small-box' id='right-box'>
+			<h2> Place a Bet </h2>
+			<form name="ReviewForm" method="GET" action="/cgi-bin/testSubmit.py" target = "invisibleframe">
+				 Volume:<br>
+        		 <input type="text" name="name"> <br>
+  				 <input type="text" name="desc">  <br>
+  				 <input type="text" name="auth" >  <br>
+        		 <button class="button" onclick="submitReviewForm()">Fund it!</button>
+			</form>
+		</div>
+	</div>
+</body>
+
+</html>
